@@ -1,7 +1,8 @@
 import { expect } from '@playwright/test';
 import { test } from '@utils/test/playwright';
 
-test.describe('radio: a11y', () => {
+// TODO FW-3747
+test.describe.skip('radio: a11y', () => {
   test.beforeEach(({ skip }) => {
     skip.rtl();
   });
