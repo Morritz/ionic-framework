@@ -602,7 +602,7 @@ Developers can dismiss this warning by removing their usage of the "legacy" prop
   }
 
   private renderRange() {
-    const { disabled, el, rangeId, pin, pressedKnob, labelPlacement, hasLabel } = this;
+    const { disabled, el, rangeId, pin, pressedKnob, labelPlacement, hasLabel, hasStartIcon, hasEndIcon } = this;
 
     const mode = getIonMode(this);
 
@@ -617,6 +617,8 @@ Developers can dismiss this warning by removing their usage of the "legacy" prop
           [mode]: true,
           'in-item': hostContext('ion-item', el),
           'range-has-label': hasLabel,
+          'range-has-start-icon': hasStartIcon,
+          'range-has-end-icon': hasEndIcon,
           'range-disabled': disabled,
           'range-pressed': pressedKnob !== undefined,
           'range-has-pin': pin,
@@ -644,6 +646,14 @@ Developers can dismiss this warning by removing their usage of the "legacy" prop
 
   private get hasLabel() {
     return this.el.querySelector('[slot="label"]') !== null;
+  }
+
+  private get hasStartIcon() {
+    return this.el.querySelector('[slot="start"]') !== null;
+  }
+
+  private get hasEndIcon() {
+    return this.el.querySelector('[slot="end"]') !== null;
   }
 
   private renderRangeSlider() {
